@@ -1,0 +1,23 @@
+{
+  "name": "folderstructure",
+  "version": "1.0.0",
+  "description": "This is a simple web app where i am trying to build folder structure.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taraksh01/folderStructure.git"
+  },
+  "keywords": [
+    "folder",
+    "tarksh01"
+  ],
+  "author": "Tarak Shaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taraksh01/folderStructure/issues"
+  },
+  "homepage": "https://github.com/taraksh01/folderStructure#readme"
+}

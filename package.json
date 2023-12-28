@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/taraksh01/folderStructure/issues"
   },
-  "homepage": "https://github.com/taraksh01/folderStructure#readme"
+  "homepage": "https://github.com/taraksh01/folderStructure#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }

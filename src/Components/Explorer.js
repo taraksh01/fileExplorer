@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FolderStructure = ({ data }) => {
+const Explorer = ({ data }) => {
   const [hideFolder, setHideFolder] = useState(true);
   return (
     <>
@@ -15,7 +15,7 @@ const FolderStructure = ({ data }) => {
           </div>
           <div className={`${hideFolder ? "hidden" : "block pl-5"}`}>
             {data.children.map((child) => (
-              <FolderStructure data={child} key={child.id} />
+              <Explorer data={child} key={child.id} />
             ))}
           </div>
         </>
@@ -26,4 +26,4 @@ const FolderStructure = ({ data }) => {
   );
 };
 
-export default FolderStructure;
+export default Explorer;

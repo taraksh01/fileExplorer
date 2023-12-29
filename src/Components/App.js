@@ -1,10 +1,10 @@
 import { dummyData } from "../dummyData";
-import FolderStructure from "./FolderStructure";
+import Explorer from "./Explorer";
 
 const App = () => {
   return (
-    <div>
-      <FolderStructure data={dummyData} />
+    <div className="max-w-sm">
+      <Explorer data={dummyData} />
     </div>
   );
 };

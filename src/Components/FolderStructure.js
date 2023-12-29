@@ -6,7 +6,7 @@ const FolderStructure = ({ data }) => {
           <div className="p-1 border text-2xl font-medium">📁 {data.name}</div>
           <div className="ml-4">
             {data.children.map((child) => (
-              <FolderStructure data={child} />
+              <FolderStructure data={child} key={child.id} />
             ))}
           </div>
         </>

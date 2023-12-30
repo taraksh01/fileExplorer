@@ -38,6 +38,12 @@ const Explorer = ({ data }) => {
     setTakeInput({ isVisible: true, isFolder });
   };
 
+  const editFileName = (e) => {
+    e.preventDefault();
+    data.name = e.target[0].value;
+    setTakeInput({ isVisible: false });
+  };
+
   return (
     <>
       {data?.isFolder ? (
@@ -49,13 +55,7 @@ const Explorer = ({ data }) => {
             >
               {!hideFolder ? "🔽" : "▶️"}📁{" "}
               {takeInput.isVisible ? (
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    data.name = e.target[0].value;
-                    setTakeInput({ isVisible: false });
-                  }}
-                >
+                <form onSubmit={(e) => editFileName(e)}>
                   <input
                     className="w-48 border outline-none border-black px-1 rounded-md"
                     type="text"

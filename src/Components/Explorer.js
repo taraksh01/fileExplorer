@@ -6,6 +6,10 @@ const Explorer = ({ data }) => {
     isVisible: false,
     isFolder: true,
   });
+  const [takeInput, setTakeInput] = useState({
+    isVisible: false,
+    isFolder: true,
+  });
 
   const handleNewFile = (e, isFolder = true) => {
     e.stopPropagation();
@@ -28,16 +32,41 @@ const Explorer = ({ data }) => {
     setShowInput({ isVisible: false });
   };
 
+  const handleEditFile = (e, isFolder) => {
+    e.stopPropagation();
+    setHideFolder(false);
+    setTakeInput({ isVisible: true, isFolder });
+  };
+
   return (
     <>
       {data?.isFolder ? (
         <>
           <div className="p-1 hover:bg-gray-300 flex items-center justify-between">
             <span
-              className="p-1 text-yellow-500 text-xl font-medium"
+              className="p-1 text-yellow-500 text-xl font-medium flex"
               onClick={() => setHideFolder(!hideFolder)}
             >
-              {!hideFolder ? "🔽" : "▶️"}📁 {data.name}
+              {!hideFolder ? "🔽" : "▶️"}📁{" "}
+              {takeInput.isVisible ? (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    data.name = e.target[0].value;
+                    setTakeInput({ isVisible: false });
+                  }}
+                >
+                  <input
+                    className="w-48 border outline-none border-black px-1 rounded-md"
+                    type="text"
+                    autoFocus
+                    placeholder={showInput.isFolder ? "New Folder" : "New File"}
+                    onBlur={() => setTakeInput({ isVisible: false })}
+                  />
+                </form>
+              ) : (
+                data.name
+              )}
             </span>
             <span className="flex gap-1 text-lg">
               <button className="relative" onClick={(e) => handleNewFile(e)}>
@@ -55,7 +84,9 @@ const Explorer = ({ data }) => {
                   +
                 </span>
               </button>
-              <button>✏️</button>
+              <button onClick={(e) => handleEditFile(e, data.isFolder)}>
+                ✏️
+              </button>
               <button>❌</button>
             </span>
           </div>

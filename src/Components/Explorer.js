@@ -84,10 +84,13 @@ const Explorer = ({ data }) => {
                   +
                 </span>
               </button>
-              <button onClick={(e) => handleEditFile(e, data.isFolder)}>
+              <button
+                className="text-sm"
+                onClick={(e) => handleEditFile(e, data.isFolder)}
+              >
                 ✏️
               </button>
-              <button>❌</button>
+              <button className="text-sm">❌</button>
             </span>
           </div>
           <div className={`${hideFolder ? "hidden" : "block pl-5"}`}>
@@ -113,7 +116,33 @@ const Explorer = ({ data }) => {
           </div>
         </>
       ) : (
-        <div className="p-1 hover:bg-gray-300">📄 {data.name}</div>
+        <div className="flex justify-between items-center">
+          <div className="flex p-1 hover:bg-gray-300">
+            📄{" "}
+            {takeInput.isVisible ? (
+              <form onSubmit={(e) => editFileName(e)}>
+                <input
+                  className="w-48 border outline-none border-black px-1 rounded-md"
+                  type="text"
+                  autoFocus
+                  placeholder={showInput.isFolder ? "New Folder" : "New File"}
+                  onBlur={() => setTakeInput({ isVisible: false })}
+                />
+              </form>
+            ) : (
+              data.name
+            )}
+          </div>
+          <span className="flex gap-1 text-lg">
+            <button
+              className="text-sm"
+              onClick={(e) => handleEditFile(e, data.isFolder)}
+            >
+              ✏️
+            </button>
+            <button className="text-sm">❌</button>
+          </span>
+        </div>
       )}
     </>
   );

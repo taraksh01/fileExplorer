@@ -1,5 +1,5 @@
 {
-  "name": "folderstructure",
+  "name": "file-explorer",
   "version": "1.0.0",
   "description": "This is a simple web app where i am trying to build folder structure.",
   "main": "index.js",
